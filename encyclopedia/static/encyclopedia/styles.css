@@ -8,8 +8,7 @@ body{
     display: flex;
     flex-direction: row-reverse;
     justify-content: space-between;
-    padding: 8px 10px 8px 10px;
-    background-color: black;
+    background-color: rgb(2, 2, 83);
     height: fit-content;
 }
 .navbar-title{
@@ -21,10 +20,11 @@ body{
 }
 .navbar-title a{
     text-decoration: none;
+    padding: 8px 10px 8px 10px;
     line-height: 150%;
 }
 .wiki-search-form{
-    margin-right: 20px;
+    padding: 8px 10px 8px 10px;
 }
 .navbar-title a:link, .navbar-title a:visited, .navbar-title a:hover, .navbar-title a:active{
     color: white;
@@ -37,20 +37,27 @@ body{
 }
 .navbar-list li{
     list-style: none;
-    margin-right: 20px;
     font-size: 17px;
     white-space: nowrap;
+    padding: 0;
+    margin: 0;
+}
+.navbar-list a:active, .navbar-list a:link, .navbar-list a:visited{
+    color: white;
+}
+.navbar-list a{
+    padding: 8px 20px 8px 20px;
+    margin: 0px; 
+    text-decoration: none;
+    text-transform: uppercase;
+    display: block;
+    width: 100%; 
+    height: 100%; 
     line-height: 300%;
 }
-.navbar-list a:link, .navbar-list a:visited{
-    color: grey;
-    text-decoration: none;
-    text-transform: uppercase;
-}
-.navbar-list a:hover,.navbar-list a:active{
-    color: white;
-    text-decoration: none;
-    text-transform: uppercase;
+.navbar-list li:hover{
+    background-color: rgb(1, 1, 32);
+    border-radius: 0px 10px 0px 10px;
 }
 .wiki-search{
     outline: none;
@@ -75,18 +82,18 @@ body{
       .rounded-list a{
         position: relative;
         display: block;
-        padding: .4em .4em .4em 2em;
-        *padding: .4em;
-        margin: .5em 0;
-        background: #ddd;
-        color: #444;
+        padding: .8em .4em .6em 2em;
+        *padding: .6em;
+        margin: .7em 0;
+        background: rgb(31, 1, 71);
+        color:  white;
         text-decoration: none;
-        border-radius: .3em;
+        border-radius: 10px 10px 0 0;
         transition: all .3s ease-out;
       }
     
       .rounded-list a:hover{
-        background: #eee;
+        background:#430496;
       }
     
       .rounded-list a:hover:before{
@@ -100,13 +107,14 @@ body{
         left: -1.3em;
         top: 50%;
         margin-top: -1.3em;
-        background: #79cff1;
+        background: #5e04d4;
         height: 2em;
         width: 2em;
         line-height: 2em;
         border: .3em solid #fff;
         text-align: center;
         font-weight: bold;
+        font-size: 16px;
         border-radius: 2em;
         transition: all .3s ease-out;
       }

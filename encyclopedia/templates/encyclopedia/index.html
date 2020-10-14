@@ -4,6 +4,21 @@
     Encyclopedia
 {% endblock %}
 
+{% block style %}
+<style>
+    .Nresult{
+        font-size: 20px;
+        background-color: rgb(31, 1, 71);
+        color: rgb(255, 255, 255);
+        padding: 10px;
+        border-radius: 10px 10px 0px 0px;
+    }
+    h1{
+        color: #430496;
+    }
+</style>
+{% endblock%}
+
 {% block body %}
     {% if search == '' %}
     <h1>All Pages</h1>
@@ -11,8 +26,8 @@
     <h1>Search Results for "{{search}}"</h1>
     {% endif %}
     <ol class="rounded-list">
-        {% if not entries %}
-            <li>{{ entries.0 }}</li>
+        {% if 'No Results Found' in entries %}
+            <li class="Nresult">{{ entries.0 }}</li>
         {% else %}
         {% for entry in entries %}
             <li><a href="/wiki/{{ entry }}" class="entries">{{ entry }}</a></li>
