@@ -33,7 +33,6 @@ def newpage(request):
         if form.is_valid():
             title = (form.cleaned_data["title"]).strip()
             content = (form.cleaned_data["content"]).strip()
-            print(form.cleaned_data["ty"])
             if  (form.cleaned_data["ty"]) and (title in util.list_entries()) :
                 return render(request, "encyclopedia/newpage.html", {
                     "form":form,
