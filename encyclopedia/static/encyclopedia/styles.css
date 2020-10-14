@@ -129,13 +129,15 @@ body{
     }
     .navbar-title a{
         line-height: normal;
+        padding-bottom:10px;
+        padding-top: 6px;
     }
-    .navbar-list li{
-        margin-bottom:20px;
+    .navbar-list a{
         line-height: normal;
+        padding-bottom: 18px;
     }
     .wiki-search-form{
-        margin-top: 12px;
+        padding-top: 8px;
     }
 }
 .navbar > .navbar-list a.link.active { color:white; }
