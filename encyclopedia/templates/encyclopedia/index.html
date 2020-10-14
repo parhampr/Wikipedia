@@ -1,0 +1,23 @@
+{% extends "encyclopedia/layout.html" %}
+
+{% block title %}
+    Encyclopedia
+{% endblock %}
+
+{% block body %}
+    {% if search == '' %}
+    <h1>All Pages</h1>
+    {% else %}
+    <h1>Search Results for "{{search}}"</h1>
+    {% endif %}
+    <ol class="rounded-list">
+        {% if not entries %}
+            <li>{{ entries.0 }}</li>
+        {% else %}
+        {% for entry in entries %}
+            <li><a href="/wiki/{{ entry }}" class="entries">{{ entry }}</a></li>
+        {% endfor %}
+        {% endif %}
+    </ol>
+
+{% endblock %}

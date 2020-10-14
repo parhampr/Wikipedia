@@ -1,0 +1,97 @@
+{% extends "encyclopedia/layout.html" %}
+
+{% block title %}
+
+{% if form.fields.ty.initial %}
+New Page
+{% else %}
+{{form.fields.title.initial}}
+{% endif %}
+
+{% endblock %}
+{% block style %}
+
+{% if not form.fields.ty.initial %}
+    <style>
+        #id_title{
+            pointer-events:none;
+        }
+    </style>
+{% endif %}
+<style>
+    .edit{
+        display: flex;
+        flex-direction: column;
+    }
+    label{
+        font-size: 22px;
+        font-weight: bold;
+    }
+    #id_title{
+        margin: 12px 0px 14px 0px;
+        padding: 4px;
+        font-size: 17px;
+        outline: none;
+        border-radius: 0px 8px 0px 8px;
+        width: 300px;
+    }
+    #id_content{
+        margin: 12px 0px 14px 0px;
+        padding: 4px;
+        font-size: 17px;
+        outline: none;
+        border-radius: 0px 8px 0px 8px;
+        border: 1px solid black ;
+        font-size: 17px;
+        height: 400px;
+    }
+    .submit-button{
+        width: 50%;
+        height: 40px;
+        outline: none;
+        border: none;
+        background-color: black;
+        font-size: 17px;
+        color: white;
+        border-radius: 12px 12px 0px 0px;
+        padding: 8px;
+        margin: auto;
+        cursor: pointer;
+    }
+    .Error{
+        height: 40px;
+        background-color: rgb(238, 51, 51);
+        border-radius: 0px 0px 12px 12px;
+        text-align: center;
+        opacity: 0.7;
+        margin: auto;
+        width: 50%;
+
+    }
+    .Error span{
+        font-size: 17px;
+        padding: 10px;
+        line-height: 40px;
+        color: white;
+        font-weight: bolder;
+    }
+</style>
+{% endblock %}
+{% block body %}
+<form action="/Newpage/" class="edit" method="POST">
+    {% csrf_token %}
+    {{ form|safe }}
+    <input type="submit" class="submit-button"
+    {% if form.fields.ty.initial %}
+     value="Create New Page"
+    {% else %}
+     value="Edit Page"
+    {% endif %}
+    >
+</form>
+{% if not valid %}
+<div class="Error">
+<span>{{message}}</span>
+</div>
+{% endif %}
+{% endblock %}

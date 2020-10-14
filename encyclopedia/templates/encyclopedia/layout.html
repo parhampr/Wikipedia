@@ -1,0 +1,31 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}{% endblock %}</title>
+    <link rel="stylesheet" type="text/css" href="{% static '/encyclopedia/styles.css' %}">
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    {% block style %}{% endblock %}
+</head>
+<body>
+    <nav class="navbar">
+        <div class="navbar-title">
+            <a href="/">ENCYCLOPEDIA</a>
+            <form class="wiki-search-form" action="/wiki/search/" method="GET">
+                <input type="text" name="q" class="wiki-search" placeholder="Search Encyclopedia">
+            </form>
+        </div>
+        <ul class="navbar-list">
+            <li><a href="/" class="link">Home</a></li>
+            <li><a href="/Newpage" class="link">Create a New Page</a></li>
+            <li><a href="/random" class="link">Explore Random Page</a></li>
+            {% block nav %}{% endblock %}
+        </ul>
+    </nav>
+    <div class="main">
+        {% block body %}{% endblock %}
+    </div>
+</body>
+</html>

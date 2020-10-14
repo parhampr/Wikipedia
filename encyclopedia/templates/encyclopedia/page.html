@@ -1,0 +1,39 @@
+{% extends 'encyclopedia/layout.html' %}
+{% block style%}
+<style>
+    .content a:link{
+        color: black;
+        font-weight: bold;
+    }
+    .content a:hover{
+        color: rgb(117, 117, 117);
+    }
+    .EditPage{
+        position: absolute;
+        top: 80px;
+        right: 12px;
+        background-color: black;
+        border-radius: 10px 0px 10px 0px;
+        color: white;
+        outline: none;
+        border: none;
+        font-size: 17px;
+        padding: 10px;
+        width: 200px;
+        cursor: pointer;
+    }
+    @media only screen and (max-width: 800px){
+        .EditPage{
+            top:150px
+        }
+    }
+
+</style>
+{% endblock %}
+{% block title %}
+{{title}}
+{% endblock %}
+    {% block body %}
+    <div class="content">{{page|safe}}</div>
+    <a href="/wiki/{{title}}/Edit_page"><button class="EditPage">Edit Page</button></a>
+    {% endblock %}
