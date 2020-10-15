@@ -7,8 +7,9 @@ from django.contrib import messages
 
 class NewPage(forms.Form):
     title = forms.CharField(max_length=30)
-    content = forms.CharField(widget=forms.Textarea(attrs={"placeholder":'Type your MarkDown Content Here'}))
+    content = forms.CharField(widget=forms.Textarea(attrs={"placeholder":'Type your MarkDown Content Here'}), max_length=1000)
     ty = forms.BooleanField(initial=True, widget=forms.HiddenInput(), required=False)
+
 def index(request):
     return render(request, "encyclopedia/index.html", {
         "entries": util.list_entries(),
@@ -74,7 +75,7 @@ def search(request):
         new_entries.append("No Results Found")
     return render(request, "encyclopedia/index.html",{
         "entries":new_entries,
-        "search":value
+        "search":request.GET.get('q','')
     })
     
 
